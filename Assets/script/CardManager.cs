@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CardType
 {
     public string name;
+    public CardKinds kind;
     public int presentNum;
     public int numberCards;
     public Sprite pict;

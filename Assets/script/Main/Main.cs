@@ -9,7 +9,7 @@ public class Main : SceneControl {
     public override void Init()
     {
         base.Init();
-        cardList.SetCards();
+        StartCoroutine(cardList.SetCards());
     }
 
 }
