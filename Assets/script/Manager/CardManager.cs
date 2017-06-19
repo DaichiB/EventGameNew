@@ -33,7 +33,21 @@ public class CardManager : SingletonMonoBehaviour<CardManager> {
             for (int j = 0; j < type.numberCards; j++)
                 cardList.Add(type);
         }
-        return cardList;
+        return ShuffleList(cardList);
+    }
+
+    List<CardType> ShuffleList(List<CardType> list)
+    {
+        List<CardType> shuffleList = list;
+        int count = list.Count;
+        for(int i = 0; i < count; i++)
+        {
+            int changeNum = UnityEngine.Random.Range(i, count);
+            CardType temp = shuffleList[i];
+            shuffleList[i]=shuffleList[changeNum];
+            shuffleList[changeNum]= temp;
+        }
+        return list;
     }
 
 }
