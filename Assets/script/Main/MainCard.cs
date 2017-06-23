@@ -38,6 +38,8 @@ public class MainCard : MonoBehaviour
             thisCard.sprite = spriteHeads;
             isOpen = true;
         }
+
+        UIManager.instance.ShowPopup("PopupCardSelect");
     }
 
 }
