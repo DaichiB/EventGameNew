@@ -14,7 +14,7 @@ public enum CardKinds
 
 public class MainCard : MonoBehaviour
 {
-
+    string name;
     CardKinds kind;
     int presentNum;
     public bool IsOpen { get { return isOpen; } }
@@ -25,6 +25,7 @@ public class MainCard : MonoBehaviour
 
     public void SetData(CardType type)
     {
+        name = type.name;
         kind = type.kind;
         presentNum = type.presentNum;
         spriteHeads = type.pict;
@@ -35,11 +36,21 @@ public class MainCard : MonoBehaviour
     {
         if (!isOpen)
         {
-            thisCard.sprite = spriteHeads;
+            Dictionary<string, object> dict = new Dictionary<string, object>();
+            dict.Add("name", name);
+            dict.Add("kind", kind);
+            dict.Add("presentNum", presentNum);
+            dict.Add("ans", false);
+            UIManager.instance.ShowPopup("PopupCardSelect", dict, (data)=> {
+                if(((Dictionary<string, object>)data).ContainsKey("ans"))
+                {
+                    if (!((bool)((Dictionary<string, object>)data)["ans"]))
+                        isOpen = false;
+                    
+                }
+            });
             isOpen = true;
         }
-
-        UIManager.instance.ShowPopup("PopupCardSelect");
     }
 
 }

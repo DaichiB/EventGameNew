@@ -22,6 +22,8 @@ public class SceneManager : SingletonMonoBehaviour<SceneManager> {
     [SerializeField]
     public List<Scenes> sceneList;
 
+    const string SCENE_PATH = "Scenes/";
+
     Scenes target;
 
     Scenes.SceneType currentScene;
@@ -55,9 +57,4 @@ public class SceneManager : SingletonMonoBehaviour<SceneManager> {
         currentScene = scene;
         target.scene.Init();
     }
-
-    
-
-    
-
 }

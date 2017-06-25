@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviour
     static public GameObject LoadPrefab(string objName)
     {
         GameObject obj = (GameObject)GameObject.Instantiate(Resources.Load(objName));
+        Debug.Log("Load " + objName);
         /*if (parent != null)
             obj.transform.SetParent(parent, false);*/
         return obj;
